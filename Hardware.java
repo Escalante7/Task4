@@ -1,5 +1,3 @@
-// Super class - Requirement 1: Inheritance Hierarchy
-// Requirement 5: Encapsulation (all fields private)
 public class Hardware {
     private int id;
     private String brand;
@@ -13,14 +11,18 @@ public Hardware(int id, String brand, int spec, String type) {
         this.type = type;
     }
   
-    // Getters for private fields
     public int getId() { return id; }
     public String getBrand() { return brand; }
     public int getSpec() { return spec; }
     public String getType() { return type; }
 
-    // Requirement 2: Contextual Logic via Method Overriding
-    // Default implementation - subclasses will override
     public String getSpecDisplay() {
         return String.valueOf(spec);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-5d %-20s %-15s %-15s",
+                id, brand, getType(), getSpecDisplay());
+    }
+}
