@@ -11,3 +11,24 @@ public class Main {
         System.out.println("=== HARDWARE MASTERLIST ===");
         System.out.printf("%-5s %-20s %-15s %-15s%n", "ID", "Brand", "Type", "Spec");
         System.out.println("----------------------------------------------------");
+
+        for (Hardware h : hardwareList) {
+            System.out.println(h);
+        }
+
+        // Requirement 4: Polymorphic Audit
+        // Single loop with instanceof to count items
+        int total16GBLaptops = 0;
+        int total32GBLaptops = 0;
+        int total50MPPhones = 0;
+
+        // Can easily add more counters for 8GB, 4GB, etc. as needed
+        int total48MPPhones = 0;
+        int total16MPPhones = 0;
+
+        for (Hardware h : hardwareList) {
+            if (h instanceof Laptop) {
+                Laptop laptop = (Laptop) h;
+                if (laptop.getSpec() == 16) total16GBLaptops++;
+                if (laptop.getSpec() == 32) total32GBLaptops++;
+                // Easy to add: if (laptop.getSpec() == 8) total8GBLaptops++;
